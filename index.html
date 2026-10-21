@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<!-- Memberitahu browser bahwa dokumen ini menggunakan HTML5 -->
+
+<html lang="id">
+<!-- Membuka dokumen HTML -->
+
+<head>
+    <!-- Bagian head berisi informasi tentang halaman website -->
+
+    <meta charset="UTF-8">
+    <!-- Mendukung karakter, simbol, dan huruf bahasa Indonesia -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Membuat ukuran halaman menyesuaikan lebar layar perangkat -->
+
+    <title>Wisata Lombok Utara</title>
+    <!-- Menentukan judul yang ditampilkan pada tab browser -->
+
+    <style>
+        /* CSS ditulis di bagian ini untuk mengatur tampilan website */
+
+        /* Mengatur seluruh halaman */
+        body {
+            font-family: Arial, sans-serif; /* Menentukan jenis huruf */
+            margin: 0; /* Menghilangkan margin ( jarak) bawaan */
+            padding: 0; /* Menghilangkan padding(ruang di dalam) bawaan */
+            background-color: aliceblue; /* Memberikan latar belakang biru muda */
+            color: darkslategray; /* Menentukan warna tulisan utama */
+        }
+
+        /* Mengatur bagian header (bagian kepala /atas) */
+        header {
+            background-color: steelblue; /* Memberikan latar belakang biru */
+            color: white; /* Membuat tulisan menjadi putih */
+            text-align: center; /* Memusatkan tulisan */
+            padding: 35px 20px; /* Memberikan ruang di dalam header */
+        }
+
+        /* Mengatur judul utama */
+        header h1 {
+            font-size: 36px; /* Mengatur ukuran judul */
+            margin-bottom: 10px; /* Memberikan jarak bawah */
+        }    
+
+        /* Mengatur deskripsi header */
+        header p {
+            font-size: 17px; /* Mengatur ukuran tulisan deskripsi */
+        }
+
+        /* Mengatur menu navigasi */
+        nav {
+            background-color: midnightblue; /* Memberikan latar belakang biru tua */
+            text-align: center; /* Memusatkan menu */
+            padding: 15px; /* Memberikan ruang dalam menu */
+        }
+
+        /* Mengatur tautan menu */
+        nav a {
+            color: white; /* Membuat tulisan menu berwarna putih */
+            text-decoration: none; /* Menghilangkan garis bawah */
+            margin: 12px; /* Memberikan jarak antarmenu */
+            font-weight: bold; /* Membuat tulisan menjadi tebal */
+            display: inline-block; /* Menjaga menu tetap sejajar */
+        }
+
+        /* Mengatur efek menu ketika diarahkan kursor */
+        nav a:hover {
+            color: powderblue; /* Mengubah warna tulisan menjadi biru muda */
+        }
+
+        /* Mengatur bagian pembuka */
+        .pembuka {
+            text-align: center; /* Memusatkan tulisan */
+            padding: 30px 20px; /* Memberikan ruang dalam */
+            background-color: lightcyan; /* Memberikan latar belakang biru muda */
+        }
+
+        /* Mengatur judul bagian pembuka */
+        .pembuka h2 {
+            color: midnightblue; /* Memberikan warna biru tua */
+        }
+
+        /* Mengatur paragraf pembuka */
+        .pembuka p {
+            line-height: 1.8; /* Mengatur jarak antarbaris */
+            max-width: 850px; /* Membatasi lebar paragraf */
+            margin: 10px auto; /* Memberikan jarak ( kiri dan kanan )dan memusatkan paragraf */
+        }
+
+        /* Mengatur judul setiap kategori galeri */
+        .judul-galeri {
+            text-align: center; /* Memusatkan judul */
+            color: midnightblue; /* Memberikan warna biru tua */
+            margin-top: 35px; /* Memberikan jarak atas */
+            margin-bottom: 10px; /* Memberikan jarak bawah */
+        }
+
+        /* Mengatur tulisan penjelas kategori */
+        .subjudul {
+            text-align: center; /* Memusatkan tulisan */
+            color: dimgray; /* Memberikan warna abu-abu */
+            padding: 0 15px; /* Memberikan ruang kiri dan kanan */
+        }
+
+        /* Mengatur kumpulan kartu */
+        .galeri {
+            display: flex; /* Menggunakan Flexbox */
+            flex-wrap: wrap; /* Memungkinkan kartu pindah baris */
+            justify-content: center; /* Memusatkan kartu */
+            gap: 25px; /* Memberikan jarak antarkartu */
+            padding: 30px 20px; /* Memberikan ruang dalam galeri */
+        }
+
+        /* Mengatur setiap kartu wisata */
+        .kartu {
+            background-color: white; /* Memberikan latar belakang putih */
+            width: 280px; /* Mengatur lebar kartu */
+            border-radius: 12px; /* Membuat sudut kartu melengkung */
+            overflow: hidden; /* Menjaga isi tetap di dalam kartu */
+            box-shadow: 0 4px 10px #cccccc; /* Memberikan bayangan */
+            transition: transform 0.3s; /* Membuat perubahan posisi lebih halus */
+        }
+
+        /* Memberikan efek pada kartu */
+        .kartu:hover {
+            transform: translateY(-7px); /* Mengangkat kartu ketika diarahkan kursor */
+        }
+
+        /* Mengatur gambar pada kartu */
+        .kartu img {
+            width: 100%; /* Membuat gambar memenuhi lebar kartu */
+            height: 190px; /* Menentukan tinggi gambar */
+            object-fit: cover; /* Menyesuaikan gambar dengan kotak */
+            display: block; /* Menghilangkan ruang kosong di bawah gambar */
+        }
+
+        /* Mengatur isi kartu */
+        .isi-kartu {
+            padding: 17px; /* Memberikan jarak dalam */
+        }
+
+        /* Mengatur judul tempat wisata */
+        .isi-kartu h3 {
+            color: steelblue; /* Memberikan warna biru */
+            margin-top: 10px; /* Memberikan jarak atas */
+        }
+
+        /* Mengatur deskripsi wisata */
+        .isi-kartu p {
+            line-height: 1.7; /* Mengatur jarak antarbaris */
+            font-size: 14px; /* Mengatur ukuran tulisan */
+        }
+
+        /* Mengatur label kategori */
+        .kategori {
+            display: inline-block; /* Membuat label bisa diatur jaraknya */
+            background-color: honeydew; /* Memberikan latar belakang hijau muda */
+            color: seagreen; /* Memberikan warna tulisan hijau */
+            padding: 6px 10px; /* Memberikan ruang dalam */
+            border-radius: 20px; /* Membuat sudut label bulat(melengkung) */
+            font-size: 12px; /* Mengatur ukuran tulisan label */
+            font-weight: bold; /* Membuat tulisan label tebal */
+        }
+
+        /* Mengatur bagian informasi tambahan */
+        .tentang {
+            background-color: honeydew; /* Memberikan latar belakang hijau muda */
+            text-align: center; /* Memusatkan tulisan */
+            padding: 35px 20px; /* Memberikan ruang dalam */
+            line-height: 1.8; /* Mengatur jarak antarbaris */
+        }
+
+        /* Mengatur judul informasi tambahan */
+        .tentang h2 {
+            color: seagreen; /* Memberikan warna hijau */
+        }
+
+        /* Mengatur bagian ajakan */
+        .ajakan {
+            background-color: lightcyan; /* Memberikan latar belakang biru muda */
+            text-align: center; /* Memusatkan tulisan */
+            padding: 30px 20px; /* Memberikan ruang dalam */
+        }
+
+        /* Mengatur judul ajakan */
+        .ajakan h2 {
+            color: blue; /* Memberikan warna biru */
+        }
+
+        /* Mengatur footer */
+        footer {
+            background-color: midnightblue; /* Memberikan latar belakang biru tua */
+            color: white; /* Membuat tulisan berwarna putih */
+            text-align: center; /* Memusatkan tulisan */
+            padding: 20px; /* Memberikan ruang dalam */
+            line-height: 1.7; /* Mengatur jarak antarbaris */
+        }
+
+        /* Mengatur tampilan pada layar HP */
+        @media (max-width: 600px) {
+
+            /* Memperkecil judul pada layar HP */
+            header h1 {
+                font-size: 27px;
+            }
+
+            /* Mengatur jarak antarmenu pada HP */
+            nav a {
+                margin: 8px;
+            }
+
+            /* Mengatur ruang galeri pada HP */
+            .galeri {
+                padding: 20px 12px;
+            }
+
+            /* Mengatur ukuran kartu pada HP */
+            .kartu {
+                width: 100%;
+                max-width: 380px;
+            }
+        }
+    </style>
+    <!-- Mengakhiri bagian CSS -->
+</head>
+<!-- Mengakhiri bagian head -->
+
+<body>
+<!-- Memulai bagian isi website yang akan ditampilkan browser -->
+
+    <!-- BAGIAN HEADER: JUDUL WEBSITE -->
+    <header>
+        <!-- Membuka bagian kepala website -->
+
+        <h1>🌿 Wisata Lombok Utara 🌿</h1>
+        <!-- Menampilkan judul utama website -->
+
+        <p>
+            Menjelajahi Keindahan Alam Kabupaten Lombok Utara,
+            Nusa Tenggara Barat
+        </p>
+        <!-- Menampilkan deskripsi singkat website -->
+
+    </header>
+    <!-- Menutup bagian header -->
+
+
+    <!-- BAGIAN MENU NAVIGASI -->
+    <nav>
+        <!-- Membuka bagian menu navigasi -->
+
+        <a href="#beranda">Beranda</a>
+        <!-- Mengarahkan pengguna ke bagian dengan id beranda -->
+
+        <a href="#air-terjun">Air Terjun</a>
+        <!-- Mengarahkan pengguna ke bagian dengan id air-terjun -->
+
+        <a href="#pantai">Pantai</a>
+        <!-- Mengarahkan pengguna ke bagian dengan id pantai -->
+
+        <a href="#gili">Gili</a>
+        <!-- Mengarahkan pengguna ke bagian dengan id gili -->
+
+    </nav>
+    <!-- Menutup bagian navigasi -->
+
+
+    <!-- BAGIAN PEMBUKA -->
+    <section class="pembuka" id="beranda">
+        <!-- Membuat bagian pembuka dengan class pembuka dan id beranda -->
+
+        <h2>Selamat Datang di Wisata Lombok Utara</h2>
+        <!-- Menampilkan judul bagian pembuka -->
+
+        <p>
+            Lombok Utara merupakan salah satu kabupaten di
+            Provinsi Nusa Tenggara Barat yang memiliki beragam
+            keindahan alam. Mulai dari air terjun yang menyegarkan,
+            pantai yang indah, pegunungan yang menakjubkan,
+            hingga pulau-pulau kecil dengan pemandangan laut
+            yang memukau.
+        </p>
+        <!-- Menampilkan pengenalan tentang Lombok Utara -->
+
+        <p>
+            Melalui galeri ini, mari mengenal berbagai destinasi
+            wisata alam yang menarik untuk dikunjungi!
+        </p>
+        <!-- Menampilkan kalimat ajakan untuk mengenal wisata -->
+
+    </section>
+    <!-- Menutup bagian pembuka -->
+
+
+    <!-- BAGIAN GALERI AIR TERJUN -->
+    <h2 class="judul-galeri" id="air-terjun">
+        💧 Wisata Air Terjun
+    </h2>
+    <!-- Menampilkan judul kategori air terjun -->
+
+    <p class="subjudul">
+        Nikmati keindahan air terjun dan suasana alam yang sejuk.
+    </p>
+    <!-- Menampilkan deskripsi kategori air terjun -->
+
+    <section class="galeri">
+    <!-- Membuka kumpulan kartu air terjun -->
+
+
+        <!-- KARTU 1: SENDANG GILE -->
+        <div class="kartu">
+            <!-- Membuat kartu pertama -->
+
+            <img
+                src="https://img.cnt.traveloka.com/tvlk/blog/2024/12/shutterstock_1867675615.jpg"
+                alt="Air terjun Sendang Gile">
+            <!-- Menampilkan gambar Sendang Gile -->
+
+            <div class="isi-kartu">
+                <!-- Membuka bagian isi kartu -->
+
+                <span class="kategori">Air Terjun</span>
+                <!-- Menampilkan label kategori -->
+
+                <h3>1. Air Terjun Sendang Gile</h3>
+                <!-- Menampilkan nama tempat wisata -->
+
+                <p>
+                    Air Terjun Sendang Gile terletak di Desa Senaru,
+                    Kecamatan Bayan, Kabupaten Lombok Utara,
+                    Nusa Tenggara Barat. Air terjun ini berada
+                    di kawasan Taman Nasional Gunung Rinjani.
+                </p>
+                <!-- Menampilkan deskripsi Sendang Gile -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Sendang Gile -->
+
+
+        <!-- KARTU 2: TIU KELEP -->
+        <div class="kartu">
+            <!-- Membuat kartu kedua -->
+
+            <img
+                src="https://awsimages.detik.net.id/community/media/visual/2019/03/18/b15af85a-7762-4f8a-87db-707e30fb4a45.jpeg?w=1200"
+                alt="Air Terjun Tiu Kelep">
+            <!-- Menampilkan gambar Tiu Kelep -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Air Terjun</span>
+                <!-- Menampilkan label kategori -->
+
+                <h3>2. Air Terjun Tiu Kelep</h3>
+                <!-- Menampilkan nama air terjun -->
+
+                <p>
+                    Air Terjun Tiu Kelep berada di kawasan Senaru,
+                    Lombok Utara. Tempat ini terkenal dengan
+                    pemandangan air terjun dan lingkungan alam
+                    yang hijau.
+                </p>
+                <!-- Menampilkan deskripsi Tiu Kelep -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Tiu Kelep -->
+
+
+        <!-- KARTU 3: TIU TEJA -->
+        <div class="kartu">
+            <!-- Membuat kartu ketiga -->
+
+            <img
+                src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Tiu_Teja_waterfall.jpg/500px-Tiu_Teja_waterfall.jpg"
+                alt="Air Terjun Tiu Teja">
+            <!-- Menampilkan gambar Tiu Teja -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Air Terjun</span>
+                <!-- Menampilkan label kategori -->
+
+                <h3>3. Air Terjun Tiu Teja</h3>
+                <!-- Menampilkan nama air terjun -->
+
+                <p>
+                    Air Terjun Tiu Teja berada di kawasan Santong,
+                    Kecamatan Kayangan, Lombok Utara. Destinasi ini
+                    menawarkan suasana alam yang hijau dan sejuk.
+                </p>
+                <!-- Menampilkan deskripsi Tiu Teja -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Tiu Teja -->
+
+
+        <!-- KARTU 4: KERTA GANGGA -->
+        <div class="kartu">
+            <!-- Membuat kartu keempat -->
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEdngiCB_aG8AzASV14jciH5TCwYNg89RERocGI5C4Eueebzfb39n-f7qo&s=10"
+                alt="Air Terjun Kerta Gangga">
+            <!-- Menampilkan gambar Kerta Gangga -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Air Terjun</span>
+                <!-- Menampilkan label kategori -->
+
+                <h3>4. Air Terjun Kerta Gangga</h3>
+                <!-- Menampilkan nama air terjun -->
+
+                <p>
+                    Air Terjun Kerta Gangga merupakan destinasi
+                    wisata alam di Lombok Utara yang menawarkan
+                    pemandangan air terjun dan suasana pedesaan.
+                </p>
+                <!-- Menampilkan deskripsi Kerta Gangga -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Kerta Gangga -->
+
+
+        <!-- KARTU 5: TIU PUPUS -->
+        <div class="kartu">
+            <!-- Membuat kartu kelima -->
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCb2gRmZstlKwi0G8iLu5aLHW1IJzykyWP3lpnxoUVTuGq5u727ULpS30&s=10"
+                alt="Air Terjun Tiu Pupus">
+            <!-- Menampilkan gambar Tiu Pupus -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Air Terjun</span>
+                <!-- Menampilkan label kategori -->
+
+                <h3>5. Air Terjun Tiu Pupus</h3>
+                <!-- Menampilkan nama air terjun -->
+
+                <p>
+                    Air Terjun Tiu Pupus terletak di Desa Genggelang,
+                    Kecamatan Gangga, Kabupaten Lombok Utara.
+                    Tempat ini menawarkan pemandangan air terjun
+                    dan kolam alami yang menarik.
+                </p>
+                <!-- Menampilkan deskripsi Tiu Pupus -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Tiu Pupus -->
+
+    </section>
+    <!-- Menutup kumpulan kartu air terjun -->
+
+
+    <!-- BAGIAN GALERI PANTAI -->
+    <h2 class="judul-galeri" id="pantai">
+        🏖️ Wisata Pantai
+    </h2>
+    <!-- Menampilkan judul kategori pantai -->
+
+    <p class="subjudul">
+        Temukan keindahan laut dan pesisir Lombok Utara.
+    </p>
+    <!-- Menampilkan deskripsi kategori pantai -->
+
+    <section class="galeri">
+    <!-- Membuka kumpulan kartu pantai -->
+
+
+        <!-- KARTU 1: PANTAI SIRE -->
+        <div class="kartu">
+            <!-- Membuat kartu Pantai Sire -->
+
+            <img
+                src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RHDXgqYgUGnasS0p__QO-eK__FZi9u53j4sR-o-2lXDlFRKdQiCR_75dsz1RgpBrGddlMR3Gdc1vT5u_hfc9O1grA1CT4-DfBDe6YQ4mvkwvbxTLieTDebTxYCft_6vco9knSlKw=s1360-w1360-h1020-rw"
+                alt="Pantai Sire">
+            <!-- Menampilkan gambar Pantai Sire -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Pantai</span>
+                <!-- Menampilkan kategori pantai -->
+
+                <h3>1. Pantai Sire</h3>
+                <!-- Menampilkan nama pantai -->
+
+                <p>
+                    Pantai Sire terletak di wilayah Kecamatan
+                    Tanjung, Kabupaten Lombok Utara. Pantai ini
+                    terkenal dengan suasana yang tenang dan
+                    pemandangan alam pesisir.
+                </p>
+                <!-- Menampilkan deskripsi Pantai Sire -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Pantai Sire -->
+
+
+        <!-- KARTU 2: PANTAI NIPAH -->
+        <div class="kartu">
+            <!-- Membuat kartu Pantai Nipah -->
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKh3bQS57NPAkWoMFTsYAyGhauTEQpp16988JFBArpGQ&s=10"
+                alt="Pantai Nipah">
+            <!-- Menampilkan gambar Pantai Nipah -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Pantai</span>
+                <!-- Menampilkan kategori pantai -->
+
+                <h3>2. Pantai Nipah</h3>
+                <!-- Menampilkan nama pantai -->
+
+                <p>
+                    Pantai Nipah berada di Desa Malaka,
+                    Kecamatan Pemenang, Kabupaten Lombok Utara.
+                    Pantai ini memiliki pemandangan laut dan
+                    perbukitan yang menarik.
+                </p>
+                <!-- Menampilkan deskripsi Pantai Nipah -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Pantai Nipah -->
+
+
+        <!-- KARTU 3: PANTAI KECINAN -->
+        <div class="kartu">
+            <!-- Membuat kartu Pantai Kecinan -->
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYH37dVjZ95bETjvLyFhPx1PShnoJTMd17VaPTus8LFA&s=10"
+                alt="Pantai Kecinan">
+            <!-- Menampilkan gambar Pantai Kecinan -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Pantai</span>
+                <!-- Menampilkan kategori pantai -->
+
+                <h3>3. Pantai Kecinan</h3>
+                <!-- Menampilkan nama pantai -->
+
+                <p>
+                    Pantai Kecinan terletak di Desa Malaka,
+                    Kecamatan Pemenang, Lombok Utara. Pantai ini
+                    menawarkan suasana yang tenang, pemandangan
+                    laut, dan lingkungan pesisir yang asri.
+                </p>
+                <!-- Menampilkan deskripsi Pantai Kecinan -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Pantai Kecinan -->
+
+
+        <!-- KARTU 4: PANTAI KETAPANG TAMPES -->
+        <div class="kartu">
+            <!-- Membuat kartu Pantai Ketapang Tampes -->
+
+            <img
+                src="https://awsimages.detik.net.id/community/media/visual/2025/06/15/pesona-pantai-ketapang-di-kabupaten-flores-timur-nusa-tenggara-timur-ntt-1749966048700_169.jpeg?w=1200"
+                alt="Pantai Ketapang">
+            <!-- Menampilkan gambar pantai -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Pantai</span>
+                <!-- Menampilkan kategori pantai -->
+
+                <h3>4. Pantai Ketapang Tampes</h3>
+                <!-- Menampilkan nama pantai -->
+
+                <p>
+                    Pantai Ketapang Tampes berada di wilayah
+                    Desa Selengen, Kecamatan Kayangan,
+                    Kabupaten Lombok Utara. Periksa kembali
+                    kecocokan gambar dengan lokasi pantai ini.
+                </p>
+                <!-- Menampilkan deskripsi pantai -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Pantai Ketapang Tampes -->
+
+
+        <!-- KARTU 5: PANTAI LABUHAN CARIK -->
+        <div class="kartu">
+            <!-- Membuat kartu Pantai Labuhan Carik -->
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuy3xjcqMxnxQJhn1LBxOZdtbs-hmijAmt7sf6xzLaRQ&s=10"
+                alt="Pantai Labuhan Carik">
+            <!-- Menampilkan gambar Pantai Labuhan Carik -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Pantai</span>
+                <!-- Menampilkan kategori pantai -->
+
+                <h3>5. Pantai Labuhan Carik</h3>
+                <!-- Menampilkan nama pantai -->
+
+                <p>
+                    Pantai Labuhan Carik berada di Desa Anyar,
+                    Kecamatan Bayan, Kabupaten Lombok Utara.
+                    Pantai ini merupakan salah satu kawasan
+                    pesisir yang dapat dikenal melalui galeri ini.
+                </p>
+                <!-- Menampilkan deskripsi pantai -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Pantai Labuhan Carik -->
+
+    </section>
+    <!-- Menutup kumpulan kartu pantai -->
+
+
+    <!-- BAGIAN GALERI GILI -->
+    <h2 class="judul-galeri" id="gili">
+        🏝️ Wisata Pulau Kecil (Gili)
+    </h2>
+    <!-- Menampilkan judul kategori gili -->
+
+    <p class="subjudul">
+        Nikmati keindahan pulau-pulau kecil dan pemandangan laut.
+    </p>
+    <!-- Menampilkan deskripsi kategori gili -->
+
+    <section class="galeri">
+    <!-- Membuka kumpulan kartu gili -->
+
+
+        <!-- KARTU 1: GILI MENO -->
+        <div class="kartu">
+            <!-- Membuat kartu Gili Meno -->
+
+            <img
+                src="https://lepirate.com/wp-content/uploads/2025/08/Aerial-View-Gili-Meno-1280x720.jpg"
+                alt="Gili Meno">
+            <!-- Menampilkan gambar Gili Meno -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Gili</span>
+                <!-- Menampilkan kategori gili -->
+
+                <h3>1. Gili Meno</h3>
+                <!-- Menampilkan nama pulau -->
+
+                <p>
+                    Gili Meno terletak di Kecamatan Pemenang,
+                    Kabupaten Lombok Utara. Pulau ini berada
+                    di antara Gili Trawangan dan Gili Air.
+                </p>
+                <!-- Menampilkan deskripsi Gili Meno -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Gili Meno -->
+
+
+        <!-- KARTU 2: GILI AIR -->
+        <div class="kartu">
+            <!-- Membuat kartu Gili Air -->
+
+            <img
+                src="https://images.trvl-media.com/place/6326554/ce43e3af-0293-4ddf-ba50-2257e6b68335.jpg"
+                alt="Gili Air">
+            <!-- Menampilkan gambar Gili Air -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Gili</span>
+                <!-- Menampilkan kategori gili -->
+
+                <h3>2. Gili Air</h3>
+                <!-- Menampilkan nama pulau -->
+
+                <p>
+                    Gili Air merupakan salah satu pulau kecil
+                    terkenal di Lombok Utara. Pulau ini dikenal
+                    dengan pemandangan laut dan suasana pesisir.
+                </p>
+                <!-- Menampilkan deskripsi Gili Air -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Gili Air -->
+
+
+        <!-- KARTU 3: GILI TRAWANGAN -->
+        <div class="kartu">
+            <!-- Membuat kartu Gili Trawangan -->
+
+            <img
+                src="https://thelangkahtravel.com/wp-content/uploads/2019/05/Gili-Trawangan-Lombok-1-1.jpg"
+                alt="Gili Trawangan">
+            <!-- Menampilkan gambar Gili Trawangan -->
+
+            <div class="isi-kartu">
+                <!-- Membuka isi kartu -->
+
+                <span class="kategori">Gili</span>
+                <!-- Menampilkan kategori gili -->
+
+                <h3>3. Gili Trawangan</h3>
+                <!-- Menampilkan nama pulau -->
+
+                <p>
+                    Gili Trawangan terletak di Kecamatan Pemenang,
+                    Kabupaten Lombok Utara, Nusa Tenggara Barat.
+                    Pulau ini merupakan salah satu dari tiga
+                    gili terkenal di kawasan tersebut.
+                </p>
+                <!-- Menampilkan deskripsi Gili Trawangan -->
+
+            </div>
+            <!-- Menutup isi kartu -->
+
+        </div>
+        <!-- Menutup kartu Gili Trawangan -->
+
+    </section>
+    <!-- Menutup kumpulan kartu gili -->
+
+
+    <!-- BAGIAN INFORMASI TAMBAHAN -->
+    <section class="tentang">
+        <!-- Membuka bagian informasi tentang Lombok Utara -->
+
+        <h2>Tentang Lombok Utara</h2>
+        <!-- Menampilkan judul informasi -->
+
+        <p>
+            Lombok Utara memiliki berbagai potensi wisata alam,
+            mulai dari air terjun, pantai, hingga pulau-pulau kecil.
+            Keindahan alam tersebut menjadi daya tarik bagi wisatawan.
+        </p>
+        <!-- Menampilkan informasi singkat tentang Lombok Utara -->
+
+    </section>
+    <!-- Menutup bagian informasi tambahan -->
+
+
+    <!-- BAGIAN AJAKAN MENJAGA LINGKUNGAN -->
+    <section class="ajakan">
+        <!-- Membuka bagian ajakan -->
+
+        <h2>Mari Jaga Keindahan Alam Lombok Utara!</h2>
+        <!-- Menampilkan judul ajakan -->
+
+        <p>
+            Jagalah kebersihan, jangan membuang sampah sembarangan,
+            dan hormati lingkungan serta masyarakat setempat.
+        </p>
+        <!-- Menampilkan pesan menjaga lingkungan -->
+
+    </section>
+    <!-- Menutup bagian ajakan -->
+
+
+    <!-- BAGIAN FOOTER -->
+    <footer>
+        <!-- Membuka bagian paling bawah website -->
+
+        <p>
+            &copy; 2026 Galeri Wisata Lombok Utara
+        </p>
+        <!-- Menampilkan informasi hak cipta dan tahun -->
+
+        <p>
+            Mengenal alam, mencintai wisata, dan menjaga lingkungan.
+        </p>
+        <!-- Menampilkan kalimat penutup website -->
+
+    </footer>
+    <!-- Menutup bagian footer -->
+
+</body>
+<!-- Menutup seluruh isi website -->
+
+</html>
+<!-- Menutup dokumen HTML -->
